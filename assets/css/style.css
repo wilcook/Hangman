@@ -1,0 +1,19 @@
+body {
+	background: #FFFACD url("../images/bg.gif");
+	background-size: 100%;
+}
+
+#start {
+	margin: 0 auto;
+}
+
+#cactuses {
+	max-width: 100px;
+	height: auto;
+}
+
+@media screen and (max-width: 1340px) {
+	body {
+		background-size: auto;
+	}
+}
