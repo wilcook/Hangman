@@ -2,7 +2,7 @@
 var x = {
 	playing: false,
 	word: "",
-	letters: "",
+	letters: [],
 	wins: 0,
 	losses: 0,
 	chances: 0,
@@ -20,12 +20,12 @@ var x = {
 			if (x.key[0] == x.letters[i] && x.key[0] != x.good[i]){
 				x.good.push(x.key[0]);
 				x.key = [];
-			}
+}
 		// if there is no match, and hasn't already been guessed wrong, it gets pushed to the array x.bad
 		else if (x.key[0] != x.letters[i] && x.key[0] != x.bad[i]){
 			x.bad.push(x.key[0]);
 			x.key = [];
-		}
+}
 }
 },
 }
