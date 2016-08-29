@@ -13,6 +13,7 @@ body {
 
 .jumbotron h1 {
 	   color: #237a72;
+	   font-weight: bolder;
 }
 
 #cactuses {
@@ -21,12 +22,30 @@ body {
 }
 
 
+.panel,
+.panel-heading,
+.panel-default,
+.panel-body,
+.panel>.panel-heading {
+	background: rgb(255, 205, 255); /* This is for ie8 and below */
+	background: rgba(255, 205, 255, 0); 
+	border-style: none;
+	box-shadow: 0px;
+	color: #8cdd81;
+	font-family: 'Carter One', cursive;
+	font-size: 26px;
+	font-weight: lighter;
+	text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black;
+}
 
-@media screen and (max-width: 1340px) {
-	body {
-		background-size: auto;
-	}
-}.btn { 
+.panel-title {
+	font-size: 32px;
+}
+
+
+
+.btn { 
   color: #FFFACD; 
   background-color: #FF7F50; 
   border-color: #FFFACD; 
@@ -70,4 +89,10 @@ fieldset[disabled] .btn.active {
 .btn .badge { 
   color: #FF7F50; 
   background-color: #FFFACD; 
+}
+
+@media screen and (max-width: 1340px) {
+	body {
+		background-size: auto;
+	}
 }
