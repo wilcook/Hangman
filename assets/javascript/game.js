@@ -23,6 +23,9 @@ var x = {
 $("#start").on("click", function(){
 	// game mode is enacted
 	x.playing = true;
+
+	// cactuses are cleared
+	$("#cactuses").html("");
 	
 	// word is selected and split into letters and number of blanks
 	x.word = dictionary[Math.floor(Math.random() * dictionary.length)];
@@ -35,11 +38,9 @@ $("#start").on("click", function(){
 	x.blankOrGood = [];
 
 	// push number of letters to to x.blankOrGood
-	for (var i = 0; i < x.blanks; i++) {
-		x.blankOrGood.push("<img id='cactuses' src='../images/cactus.png>'");
+	for (var i = 0; i < x.letters.length; i++) {
+		$("#cactuses").append("<img id='cactuses' src='assets/images/cactus.png' height=50px width=auto>");
 	}
-
-	$("#cactuses").append = x.blankOrGood;
 	
 
 	// checking

@@ -17,10 +17,12 @@ body {
 }
 
 #cactuses {
-	max-width: 50px;
-	height: auto;
+	float: left;
 }
 
+.clear {
+	clear: both;
+}
 .panel-box {
 	background: rgb(255, 205, 255); /* This is for ie8 and below */
 	background: rgba(255, 205, 255, 0.1); 
