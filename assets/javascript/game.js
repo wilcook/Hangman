@@ -7,18 +7,48 @@ var x = {
 	blanks: 0,
 	guesses: 6,
 	blankOrGood: [],
-	good: [],
+	good: false,
 	bad: [],
 	wins: 0,
 	losses: 0,
 	chances: 0,
 	victory: false,
-	key: [],
-	checker: function(){},
+	key: "",
+	tallyer: function(){
+		if(x.good == true){
+			for (var i = 0; i < x.letters.length; i++) {
+					$("#cactus"+i).html(x.key);
+}
+}
+
+		else{
+			x.bad.push(x.key);
+			x.guesses --;
+}
+},
+	checker: function(){
+		// console.log("checker starts");
+		if ((x.playing == true) && (x.key >= "a") && (x.key <= "z")) {
+			// console.log("if then works");
+			for (var i = 0; i < x.letters.length; i++) {
+				if (x.key == x.letters[i]){
+					x.good = true;
+					console.log(x.good);
+					console.log("cactus"+i);
+					x.tallyer(x.good);
+}
+		else{
+			x.good == false;
+			x.tallyer(x.good);
+		}
+}
+}
+},
 }
 
 
-// game functions
+
+// click start
 // **************************************************************************************
 $("#start").on("click", function(){
 	// game mode is enacted
@@ -39,20 +69,35 @@ $("#start").on("click", function(){
 
 	// push number of letters to to x.blankOrGood
 	for (var i = 0; i < x.letters.length; i++) {
-		$("#cactuses").append("<img id='cactuses' src='assets/images/cactus.png' height=50px width=auto>");
+		$("#cactuses").append("<img id=cactus"+i+" src='assets/images/cactus.png' height=46px width=auto>");
 	}
-	
+
+	// populates score board
+	$(".guessesLeft").html(x.guesses);
+	$(".winCount").html(x.wins);
+	$(".lossCount").html(x.losses);
+
+	console.log("You cheatin' varmint!")
+
 
 	// checking
-	console.log("x.playing "+x.playing);
-	console.log("x.word "+x.word);
-	console.log("x.letters "+x.letters);
-	console.log("x.blanks "+x.blanks);
-	console.log("x.guesses "+x.guesses);
-	console.log("x.bad "+x.bad);
-	console.log("x.blankOrGood "+x.blankOrGood);
+	// console.log("x.playing "+x.playing);
+	// console.log("x.word "+x.word);
+	// console.log("x.letters "+x.letters);
+	// console.log("x.blanks "+x.blanks);
+	// console.log("x.guesses "+x.guesses);
+	// console.log("x.bad "+x.bad);
+	// console.log("x.blankOrGood "+x.blankOrGood);
+
 	});
 
 
-// main process
+// press keys
 // **************************************************************************************
+
+document.onkeypress = function(event) {
+	x.key = String.fromCharCode(event.keyCode).toLowerCase();
+	// console.log("x.key "+x.key);
+	// console.log("x.playing "+x.playing);
+	x.checker();
+}
